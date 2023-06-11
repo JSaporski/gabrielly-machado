@@ -1,0 +1,201 @@
+/***** General Styles *****/
+:root {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding-block: 4rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.6rem;
+  background-color: #d2b5d2;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/***** Main Content *****/
+.main-content {
+  max-width: 96rem;
+  margin-inline: 2rem;
+  text-align: center;
+}
+
+.main-content h1 {
+  margin-bottom: 2rem;
+  font-size: 4rem;
+  color: #2f152f;
+}
+
+.main-content p {
+  max-width: 55ch;
+  margin-inline: auto;
+  font-size: 1.8rem;
+  color: hsla(300, 39%, 13%, 0.85);
+}
+
+.main-content p + p {
+  margin-top: 2rem;
+  margin-bottom: 6rem;
+}
+
+.main-content p span {
+  color: #2f152f;
+  font-weight: 700;
+}
+
+.main-content img {
+  width: 20rem;
+  margin-inline: auto;
+  cursor: pointer;
+}
+
+.main-content img:hover {
+  animation: rotateInfinite 4s infinite linear;
+}
+
+/***** Modal *****/
+.modal {
+  display: none;
+}
+
+.modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.active .box {
+  animation: fadeInDown 0.5s ease-out;
+}
+
+.modal {
+  position: absolute;
+  inset: 0 0;
+  z-index: 15;
+  width: 100%;
+  min-height: 100vh;
+  background-color: hsla(0, 0%, 0%, 0.6);
+}
+
+.modal .box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70rem;
+  margin-inline: 2rem;
+  padding: 6rem;
+  border-radius: 1.8rem;
+  background-color: hsla(60, 100%, 87%, 4235);
+}
+
+.modal .box h2 {
+  margin-bottom: 4rem;
+  text-align: center;
+  color: #2f152f;
+}
+
+.modal .poem {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.modal .poem p {
+  font-family: 'Dancing Script', serif;
+  font-size: 2.6rem;
+  color: #ff1493;
+}
+
+.modal .close {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  cursor: pointer;
+}
+
+.modal .close path {
+  color: #2f152f;
+  transition: 0.3s ease-out;
+}
+
+.modal .close:hover path {
+  color: #ff1493;
+}
+
+/***** Responsive *****/
+@media only screen and (max-width: 500px) {
+  .main-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .main-content p {
+    font-size: 1.6rem;
+  }
+
+  .main-content img {
+    width: 14rem;
+  }
+
+  .modal .box {
+    align-items: flex-start;
+    padding: 2rem 2rem 2rem 2rem;
+  }
+
+  .modal .box h2 {
+    max-width: 20ch;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+
+  .modal .poem p {
+    font-size: 2.4rem;
+  }
+
+  .main-content p + p {
+    margin-bottom: 4rem;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 360px) {
+  .modal .box h2 {
+    font-size: 2rem;
+  }
+
+  .modal .poem p {
+    font-size: 2rem;
+  }
+}
+
+/***** Animations *****/
+@keyframes rotateInfinite {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    transform: translateY(-20rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
